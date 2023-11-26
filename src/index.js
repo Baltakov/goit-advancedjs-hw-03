@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     catInfo: document.querySelector('.cat-info'),
     loader: document.querySelector('.loader'),
   };
-
+  // showLoader();
   const slimSelect = new SlimSelect({
     select: elements.breedSelect,
     placeholder: 'Select a breed',
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (catData && catData.length > 0) {
           displayCatInfo(catData);
         } else {
-          showError('No cat data received or empty array!');
+          showError('Oops! Something went wrong! Try reloading the page!');
         }
       })
       .catch(error => handleError(error))
@@ -113,6 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
       position: 'topRight',
     });
   }
-
+  showLoader();
   serviceCatSearch();
 });
