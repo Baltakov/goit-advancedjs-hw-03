@@ -1,5 +1,6 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api.js';
 import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 document.addEventListener('DOMContentLoaded', function () {
   const elements = {
@@ -7,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     catInfo: document.querySelector('.cat-info'),
     loader: document.querySelector('.loader'),
   };
-  // showLoader();
+
   const slimSelect = new SlimSelect({
     select: elements.breedSelect,
     placeholder: 'Select a breed',
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function handleBreedSelectChange() {
     const selectedBreedId = slimSelect.selected();
+    elements.catInfo.innerHTML = '';
 
     if (selectedBreedId) {
       showLoader();
